@@ -1,39 +1,107 @@
 {
   "expo": {
-    "name": "PhomoV2App.nosync",
-    "slug": "PhomoV2App.nosync",
+    "name": "PhomoCam",
+    "slug": "PhomoMobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "phomov2appnosync",
+    "scheme": "phomomobile",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/images/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#0C0C0C",
+      "dark": {
+        "image": "./assets/images/splash-icon.png",
+        "resizeMode": "cover",
+        "backgroundColor": "#0C0C0C"
+      }
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.prasiddha123.Phomo",
+      "infoPlist": {
+        "NSCameraUsageDescription": "PhomoCam uses your camera to take photos that you can share with friends. Parties, Concerts, Events shared instantly from your camera.",
+        "NSMicrophoneUsageDescription": "Allow PhomoCam to access your microphone for taking videos with audio",
+        "NSPhotoLibraryUsageDescription": "Allow PhomoCam to access your photo library so you can sync photos or choose a profile photo",
+        "NSPhotoLibraryAddUsageDescription": "Allow PhomoCam to save photos to your photo library and create a PhomoCam album",
+        "NSLocationWhenInUseUsageDescription": "PhomoCam does not access your location. This permission is required by underlying frameworks but is not used by the app.",
+        "NSUserNotificationUsageDescription": "Allow PhomoCam to send you notifications about shared photos and friend activities",
+        "ITSAppUsesNonExemptEncryption": false,
+        "UIBackgroundModes": [
+          "fetch"
+        ]
+      },
+      "associatedDomains": [
+        "applinks:phomo.camera",
+        "applinks:www.phomo.camera"
+      ],
+      "appleTeamId": "WZX4U3C22Y"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#0C0C0C"
+      },
+      "splash": {
+        "image": "./assets/images/splash-icon.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#0C0C0C",
+        "dark": {
+          "image": "./assets/images/splash-icon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#0C0C0C"
+        }
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "package": "com.prasiddha123.Phomo",
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "READ_MEDIA_IMAGES",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.WAKE_LOCK"
+      ]
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/favicon.png",
+      "splash": {
+        "image": "./assets/images/splash-icon.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#0C0C0C"
+      }
     },
     "plugins": [
-      "expo-router"
+      [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "PhomoCam uses your camera to take photos that you can share with friends. Parties, Concerts, Events shared instantly from your camera.",
+          "microphonePermissionText": "Allow PhomoCam to access your microphone for taking videos with audio",
+          "enableMicrophonePermission": true
+        }
+      ],
+      "expo-router",
+      "expo-font",
+      "expo-web-browser",
+      "expo-notifications",
+      "expo-apple-authentication",
+      "expo-background-fetch",
+      "expo-system-ui"
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "c5969cec-1b5e-4435-b6df-486d63d6c53d"
+      }
+    },
+    "owner": "prasiddha123"
   }
 }
